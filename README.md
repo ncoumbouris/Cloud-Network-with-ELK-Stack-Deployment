@@ -124,5 +124,5 @@ SSH into the control node and follow the steps
 - The ELK server will run on the "UbuntuVM" machine at '10.1.0.4' and "Filebeat" will be runniing on the web servers ("Web-1" and "Web-2") machines at "10.0.0.5" and "10.0.0.6"
 - Which URL do you navigate to in order to check that the ELK server is running?
 The following URL will be navigated to in order to check the ELK server is running:
-- http://localhost:5601/app/kibana (where localhost is the public IP address of the "UbuntuVM" machine
+- http://localhost:5601/app/kibana (where localhost is the public IP address of the "UbuntuVM" machine and "5601" is the port used by "Kibana".
 
