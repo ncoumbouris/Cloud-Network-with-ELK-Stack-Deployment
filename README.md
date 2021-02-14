@@ -78,6 +78,7 @@ Note: The machines publicly accessible to the internet can only be accessed from
 | Web-2     | No                  | 10.0.0.4 / 10.1.0.4                          |
 | UbuntuVM  | Yes                 | 98.7.24.216 / 10.0.0.4 / 10.0.0.5 / 10.0.0.6 |
 
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because of the following:
@@ -91,39 +92,37 @@ The steps of the ELK installation play are as follows (To be performed within th
 - Launch and expose the container by executing the newly created Ansible playbook
 - Confirm Elk installed successfully via ssh connection into the VM hosting ELK and confirming the ELK image/container is up and running
 
-
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 "Images/docker_ps_output.png"
 
+
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- Web-1
-- Web-2
+- "Web-1"
+- "Web-2"
 
 We have installed the following Beats on these machines:
 - filebeat
 - metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- filebeat will collect system logs which can be used to keep track of what applications have been used.
-- metricbeat will collect system metrics such as CPU usage, memory, and data related to processes running on the system. Monitoring these metrics can help to improve system availability and reliability
+- Filebeat will collect system logs which can be used to keep track of what applications have been used.
+- Metricbeat will collect system metrics such as CPU usage, memory, and data related to processes running on the system. Monitoring these metrics can help to improve system availability and reliability
+
 
 ### Using the Playbook
+
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps
-- Copy the Playbook file from within '/etc/ansible' of the Ansible control node to the '/etc/filebeat' and '/etc/metricbeat' folders within the Destination VM's (Web-1 and Web-2)
-- Update the Hosts file to include the private IP address of Web-1 and Web-2 under the webservers group
-- Run the playbook, and ssh into the Web-1 and Web-2 machines to verify that filebeat and metricbeat packages were installed
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?
-	The playbook is a .YML (YAML) file. It is copied from the Ansible node within the (JumpBoxVM) machine onto the destination machine.
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-	The Ansible Hosts file is updated to include the specific machine you want the playbook to run on. You will specify the machines by their private IP addresses within the network.
-	The ELK server will run on the (UbuntuVM) machine at '10.1.0.4' and Filebeat will be runniing on the web servers (Web-1 and Web-2) machines at '10.0.0.5' and '10.0.0.6'
+- Copy the Playbook file from within '/etc/ansible' of the Ansible control node to the '/etc/filebeat' and '/etc/metricbeat' folders within the Destination VM's ("Web-1" and "Web-2")
+- Update the Ansible "Hosts" file to include the private IP address of "Web-1" and "Web-2" under the webservers group
+- Run the playbook, and ssh into the "Web-1" and "Web-2" machines to verify that "filebeat" and "metricbeat" packages were installed.
+- The playbook is a .YML (YAML) file. It is copied from the Ansible node within the "JumpBoxVM" machine onto the destination machine.
+- The Ansible Hosts file is updated to include the specific machine you want the playbook to run on. You will specify the machines by their private IP addresses within the network.
+- The ELK server will run on the "UbuntuVM" machine at '10.1.0.4' and "Filebeat" will be runniing on the web servers ("Web-1" and "Web-2") machines at "10.0.0.5" and "10.0.0.6"
 - _Which URL do you navigate to in order to check that the ELK server is running?
-	http://localhost:5601/app/kibana (where localhost is the public IP address of the (UbuntuVM) machine
+The following URL will be navigated to in order to check the ELK server is running:
+- http://localhost:5601/app/kibana (where localhost is the public IP address of the "UbuntuVM" machine
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
