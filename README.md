@@ -122,7 +122,7 @@ SSH into the control node and follow the steps
 - The playbook is a .YML (YAML) file. It is copied from the Ansible node within the "JumpBoxVM" machine onto the destination machine.
 - The Ansible Hosts file is updated to include the specific machine you want the playbook to run on. You will specify the machines by their private IP addresses within the network.
 - The ELK server will run on the "UbuntuVM" machine at '10.1.0.4' and "Filebeat" will be runniing on the web servers ("Web-1" and "Web-2") machines at "10.0.0.5" and "10.0.0.6"
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- Which URL do you navigate to in order to check that the ELK server is running?
 The following URL will be navigated to in order to check the ELK server is running:
 - http://localhost:5601/app/kibana (where localhost is the public IP address of the "UbuntuVM" machine
 
